@@ -1,1 +1,37 @@
-<!-- UI will go here -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>☁️ Cloud Security Risk Predictor</h1>
+    <p>Analyze risk based on cloud activity patterns</p>
+
+    <form action="/predict" method="post">
+
+        <input type="number" name="access_level" placeholder="Access Level (0-3)" required>
+        <input type="number" name="login_attempts" placeholder="Login Attempts (24h)" required>
+        <input type="number" name="failed_logins" placeholder="Failed Logins (24h)" required>
+        <input type="number" name="remote_access" placeholder="Remote Access (0/1)" required>
+        <input type="number" name="vpn_usage" placeholder="VPN Usage (0/1)" required>
+        <input type="number" name="data_download" placeholder="Data Download (GB)" required>
+        <input type="number" name="unusual_access" placeholder="Unusual File Access" required>
+        <input type="number" name="anomaly_score" placeholder="Anomaly Score" required>
+        <input type="number" name="device_trust" placeholder="Device Trust Score" required>
+        <input type="number" name="department" placeholder="Department (encoded)" required>
+
+        <button type="submit">🔍 Predict Risk</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html><!-- UI will go here -->
