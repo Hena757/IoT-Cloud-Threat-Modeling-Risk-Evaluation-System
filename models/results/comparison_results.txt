@@ -1,1 +1,6 @@
+ Model Comparison:
+Logistic Regression: 0.847
+Decision Tree: 0.731
+Random Forest: 0.847
 
+ Best Model: Logistic Regression
