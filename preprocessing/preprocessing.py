@@ -62,3 +62,11 @@ df.to_csv("data/processed/cleaned_dataset.csv", index=False)
 print("✅ Preprocessing completed successfully!")
 print("Train shape:", X_train.shape)
 print("Test shape:", X_test.shape)
+
+import matplotlib.pyplot as plt
+
+y.value_counts().plot(kind='bar')
+plt.title("Risk Distribution")
+
+os.makedirs("data/visualizations", exist_ok=True)
+plt.savefig("data/visualizations/risk_distribution.png")
